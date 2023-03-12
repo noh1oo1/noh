@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		body {
+			background: #f4f4f4;
+			overflow-x: hidden;
+			/*삐져나가는거 안보이게처리 X축*/
+		}
+
+		.world {
+			width: 100vw;
+			/*vw(뷰포트위스 사용자의 브라우저넓이를 자동으로 따라간다.)*/
+			height: 100vh;
+			/*vw(뷰포트헤이트 사용자의 브라우저높이를 자동으로 따라간다.)*/
+			display: flex;
+			/*자식요소 가로로 정렬 준비*/
+			align-items: center;
+			/*자식요소 세로정렬*/
+			justify-content: center;
+			/*자식요소 가로정렬*/
+			/*위에 3개를 동시에 사용하면 == 한가운데 정렬 */
+			perspective: 1000px;
+			/*3D효과를 주기전에 사용하는 옵션*/
+		}
+
+		.door {
+			width: 150px;
+			/*넓이 150*/
+			height: 200px;
+			/*높이 200*/
+			outline: 3px dotted crimson;
+			/*바깥쪽 라인에 3픽셀 만큼 도트형태의 윤각선을 만들기*/
+			cursor: pointer;
+			/*마우스 커서효과*/
+			transition: 2s;
+			/* 본체에 주면 hover도 효과먹음 둘다적용*/
+			position: relative;
+			transform-style: preserve-3d;
+			/*3D효과를 주기전에 사용하는 옵션 perspective랑 똑같음 가장큰 부모에 = perspective 그외 자식들에게  transform-style: preserve-3d;*/
+		}
+
+		.door .door_front {
+			background: rgb(130, 32, 168);
+			/*배경색상넣기*/
+			width: 100%;
+			/*부모넓이와 똑같이 늘림 현재부모 넓이150 만약*/
+			height: 100%;
+			/*부모높이와 똑같이 늘림* 현재부모 높이200 */
+			position: absolute;
+			/*포지션 주기 처음엔 어려움.. */
+			z-index: 1;
+			/* 포지션들중 레이어 순서*/
+			transition: 2s;
+			/* 2초동안 실행 */
+			transform-origin: left;
+			/* 트랜스폼 효과 왼쪽기준으로 실행 */
+		}
+
+		.door .door_back {
+			background: black;
+			width: 100%;
+			/*부모넓이와 똑같이 늘림 현재부모 넓이150 만약*/
+			height: 100%;
+			/*부모높이와 똑같이 늘림* 현재부모 높이200 */
+			position: absolute;
+		}
+
+		.door:hover .door_front {
+			transform: rotateY(-120deg);
+			/* 트랜스폼 효과 Y축으로 회전-120도 */
+		}
+	</style>
+</head>
+
+<body>
+	<div class="world">
+		<div class="door">
+			<div class="door_front"></div>
+			<div class="door_back"></div>
+		</div>
+	</div>
+
+
+</body>
+
+</html>

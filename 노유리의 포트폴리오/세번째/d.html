@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=`, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		body {
+			background: #f4f4f4;
+			overflow-x: hidden;
+			/* 빠져나가는 거 안 보이게 처리 X 축 */
+		}
+
+		.world {
+			width: 100vw;
+			/* vw{뷰포트위스 사용자의 브라우저넓이를 자동으로 따라간다.} */
+			height: 100vh;
+			/* vw{뷰포트헤이트 사용자의 브라우저높이를 자동으로 따라간다.} */
+			display: flex;
+			/* 지식요소 가로로 정렬 준비 */
+			align-items: center;
+			/* 지식요소 세로정렬 */
+			justify-content: center;
+			/* 지식요소 가로정렬 */
+			/* 위에 3개를 동시에 사용하면 == 한가운데 정렬 */
+			perspective: 10000px;
+			/* 3D효과를 주기전에 사용하는 옵션 */
+		}
+
+		.door {
+			width: 150px;
+			/* 넓이 150 */
+			height: 200px;
+			/* 높이 200 */
+			outline: 3px dotted crimson;
+			cursor: pointer;
+			/* 마우스 커서효과 */
+			transition: 2s;
+			/* 본체애 주면 hover도 효과 먹음 둘다 적용 */
+			po
+		}
+
+		.door:hover {
+			/* 마우스를 호버 = 올리면 */
+			outline: 50px dotted rgb(8, 0, 255);
+			transition: 2s;
+			/* 숫자로 된 것들을 2동안 만들어줌. 예를 들어 지금 숫자가 50이기 때문에 2초동안 50까지 천천히 늘려줌 */
+		}
+
+		.door .door_front {
+			background: red;
+			width: 100%;
+			/* 부모넓이와 똑같이 늘림 현재부모 넓이 150 */
+			height: 100%;
+			/* 부모높이와 똑같이 늘림 현재부모 높이 200 */
+		}
+
+		.door .door_back {
+			background: rgb(9, 0, 0);
+			width: 100%;
+			/* 부모넓이와 똑같이 늘림 현재부모 넓이 150 */
+			height: 100%;
+			/* 부모높이와 똑같이 늘림 현재부모 높이 200 */
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="world">
+		<div class="door">
+			<div class="door_front"></div>
+			<div class="door_back"></div>
+		</div>
+	</div>
+
+</body>
+
+</html>
